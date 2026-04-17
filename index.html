@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orivan | Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Menu de navegação -->
+    <nav class="navegação">
+        <a href="#Início" class="nav-logo">Orivan</a>
+        <ul class="menu">
+            <li><a href="#Início" class="menu-link active">Início</a></li>
+            <li><a href="#Sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#servicos" class="menu-link">Serviços</a></li>
+            <li><a href="#habilidades" class="menu-link">Habilidades</a></li>
+            <li><a href="#projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#contato" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seção de Início -->
+    <main id="Início" class="cabeçalho">
+        <div class="home-content">
+            <p class="home-greeting">Olá, somos</p>
+            <h1 class="home-nome">Orivan</h1>
+            <p class="home-subtitulo">Digital Group</p>
+            <h3 class="home-typed">Especialistas em <span class="text"></span></h3>
+            <p class="home-desc">transformamos ideias em software de alta performance.<br>
+                Do design ao deploy, entregamos soluções que geram resultado.</p>
+
+            <div class="home-sci">
+                <a href="https://wa.me/5515991815900" target="_blank" style="--i:1"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://instagram.com/marcelocampos_oficial" target="_blank" style="--i:2"><i class='bx bxl-instagram'></i></a>
+            </div>
+
+            <a href="#Sobre" class="btn-box">Saiba mais</a>
+        </div>
+
+        <div class="home-img">
+            <div class="home-img-circle">
+                <img src="Logo de seta abstrata 3D verde.png" alt="Orivan Logo" class="logo">
+            </div>
+        </div>
+    </main>
+
+    <!-- Sobre -->
+    <section id="Sobre" class="sobre">
+        <h2 class="titulo reveal">Sobre a empresa</h2>
+        <div class="conteudo reveal">
+            <p class="parágrafo">Somos uma empresa de desenvolvimento de software dedicada a criar soluções inovadoras e
+                personalizadas para nossos clientes. Com uma equipe de profissionais altamente qualificados, oferecemos
+                serviços que abrangem desde o desenvolvimento de aplicativos móveis até sistemas web complexos. Nosso
+                compromisso é entregar produtos de alta qualidade que atendam às necessidades específicas de cada
+                cliente, garantindo satisfação e resultados excepcionais.</p>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="servicos">
+        <h2 class="titulo reveal">Nossos Serviços</h2>
+        <div class="servicos-grid">
+
+            <div class="servico-card">
+                <i class='bx bx-cloud'></i>
+                <h3>SaaS</h3>
+                <p>Desenvolvemos plataformas SaaS escaláveis, do MVP ao produto completo, prontas para crescer junto com o seu negócio.</p>
+            </div>
+
+            <div class="servico-card">
+                <i class='bx bx-bot'></i>
+                <h3>Automações</h3>
+                <p>Automatizamos processos repetitivos com integrações inteligentes, economizando tempo e reduzindo erros operacionais.</p>
+            </div>
+
+            <div class="servico-card">
+                <i class='bx bx-code-alt'></i>
+                <h3>Sites & Landing Pages</h3>
+                <p>Criamos sites e landing pages de alta conversão, com design responsivo e foco total na experiência do usuário.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="habilidades">
+        <h2 class="titulo reveal">Habilidades</h2>
+        <div class="skills-container">
+
+            <!-- Técnicas -->
+            <div class="skills-tecnicas reveal-left">
+                <h3 class="skills-subtitulo">Habilidades Técnicas</h3>
+
+                <div class="skill-bar-item">
+                    <div class="skill-bar-top">
+                        <i class='bx bxl-html5'></i>
+                        <span>HTML & CSS</span>
+                        <span class="skill-pct">95%</span>
+                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:95%"></div></div>
+                </div>
+
+                <div class="skill-bar-item">
+                    <div class="skill-bar-top">
+                        <i class='bx bxl-javascript'></i>
+                        <span>JavaScript</span>
+                        <span class="skill-pct">50%</span>
+                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:50%"></div></div>
+                </div>
+
+                <div class="skill-bar-item">
+                    <div class="skill-bar-top">
+                        <i class='bx bxl-react'></i>
+                        <span>React</span>
+                        <span class="skill-pct">50%</span>
+                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:50%"></div></div>
+                </div>
+
+                <div class="skill-bar-item">
+                    <div class="skill-bar-top">
+                        <i class='bx bxl-nodejs'></i>
+                        <span>Node.js</span>
+                        <span class="skill-pct">75%</span>
+                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:75%"></div></div>
+                </div>
+
+                <div class="skill-bar-item">
+                    <div class="skill-bar-top">
+                        <i class='bx bx-data'></i>
+                        <span>Banco de Dados</span>
+                        <span class="skill-pct">70%</span>
+                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:70%"></div></div>
+                </div>
+
+            </div>
+
+            <!-- Profissionais -->
+            <div class="skills-profissionais reveal-right">
+                <h3 class="skills-subtitulo">Habilidades Profissionais</h3>
+                <div class="skills-circles">
+
+                    <div class="skill-circle-item">
+                        <div class="circle-wrap">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="42"/>
+                                <circle class="circle-fill" cx="50" cy="50" r="42" style="--pct:90"/>
+                            </svg>
+                            <span class="circle-pct">90%</span>
+                        </div>
+                        <p>Criatividade</p>
+                    </div>
+
+                    <div class="skill-circle-item">
+                        <div class="circle-wrap">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="42"/>
+                                <circle class="circle-fill" cx="50" cy="50" r="42" style="--pct:85"/>
+                            </svg>
+                            <span class="circle-pct">85%</span>
+                        </div>
+                        <p>Comunicação</p>
+                    </div>
+
+                    <div class="skill-circle-item">
+                        <div class="circle-wrap">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="42"/>
+                                <circle class="circle-fill" cx="50" cy="50" r="42" style="--pct:95"/>
+                            </svg>
+                            <span class="circle-pct">95%</span>
+                        </div>
+                        <p>Resolução de Problemas</p>
+                    </div>
+
+                    <div class="skill-circle-item">
+                        <div class="circle-wrap">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="42"/>
+                                <circle class="circle-fill" cx="50" cy="50" r="42" style="--pct:88"/>
+                            </svg>
+                            <span class="circle-pct">88%</span>
+                        </div>
+                        <p>Trabalho em Equipe</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="projetos">
+        <h2 class="titulo reveal">Projetos</h2>
+        <div>
+            <div class="projetos-card reveal">
+                <img src="/projeto 1 sites.png" alt="Projeto 1">
+                <h3 class="titulo">Sites</h3>
+                <p class="parágrafo 1">Desenvolvimento de sites personalizados para empresas e indivíduos, focados em
+                    design responsivo e experiência do usuário.</p>
+            </div>
+
+            <div class="projetos-card reveal">
+                <img src="/projeto 2 saas.png" alt="Projeto 2">
+                <h3 class="titulo">saas</h3>
+                <p class="parágrafo 2">Desenvolvimento de soluções SaaS para empresas, focadas em escalabilidade e
+                    desempenho.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <h2 class="titulo reveal">Contato</h2>
+        <p class="parágrafo reveal">Fale comigo diretamente pelo WhatsApp, responderei o mais rápido possível.</p>
+        <div class="contato-botoes reveal">
+            <a href="https://wa.me/5515991815900" target="_blank" class="btn-whatsapp">
+                <i class='bx bxl-whatsapp'></i>
+                Chamar no WhatsApp
+            </a>
+            <a href="https://instagram.com/marcelocampos_oficial" target="_blank" class="btn-instagram">
+                <i class='bx bxl-instagram'></i>
+                Instagram
+            </a>
+        </div>
+    </section>
+
+    <script src="particles.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navegação');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        new Typed('.text', {
+            strings: ['Sites', 'Sistemas SaaS', 'Automações', 'Experiências Digitais'],
+            typeSpeed: 70,
+            backSpeed: 50,
+            backDelay: 1800,
+            loop: true
+        });
+
+        // Anima elementos ao scrollar
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                if (el.classList.contains('reveal') || el.classList.contains('reveal-left') || el.classList.contains('reveal-right')) {
+                    el.classList.add('visible');
+                } else {
+                    el.classList.add('animate');
+                }
+                observer.unobserve(el);
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-bar-fill, .circle-fill, .servico-card')
+            .forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
