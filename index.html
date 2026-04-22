@@ -207,18 +207,90 @@
     <section id="projetos" class="projetos">
         <h2 class="titulo reveal">Projetos</h2>
         <div>
-            <div class="projetos-card reveal">
-                <img src="/projeto 1 sites.png" alt="Projeto 1">
+            <div class="projetos-card projetos-card-sites reveal">
                 <h3 class="titulo">Sites</h3>
                 <p class="parágrafo 1">Desenvolvimento de sites personalizados para empresas e indivíduos, focados em
                     design responsivo e experiência do usuário.</p>
+
+                <!-- Carrossel infinito de vídeos -->
+                <div class="carrossel-wrapper">
+                    <div class="carrossel-track">
+                        <video class="carrossel-slide" src="vídeo janaiana gambary.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="vídeo projeto 2 ortoville.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 3 odonto kapri.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 4 maria julia.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 5 iris odontologica.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 6 anadelli.mp4" muted loop playsinline autoplay></video>
+                        <!-- duplicatas para loop contínuo -->
+                        <video class="carrossel-slide" src="vídeo janaiana gambary.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="vídeo projeto 2 ortoville.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 3 odonto kapri.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 4 maria julia.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 5 iris odontologica.mp4" muted loop playsinline autoplay></video>
+                        <video class="carrossel-slide" src="projeto 6 anadelli.mp4" muted loop playsinline autoplay></video>
+                    </div>
+                </div>
             </div>
 
-            <div class="projetos-card reveal">
-                <img src="/projeto 2 saas.png" alt="Projeto 2">
-                <h3 class="titulo">saas</h3>
+            <div class="projetos-card projetos-card-saas reveal">
+                <h3 class="titulo">SaaS</h3>
                 <p class="parágrafo 2">Desenvolvimento de soluções SaaS para empresas, focadas em escalabilidade e
                     desempenho.</p>
+
+                <!-- Carrossel infinito de vídeos SaaS -->
+                <div class="carrossel-wrapper carrossel-saas">
+                    <div class="carrossel-track carrossel-track-saas">
+                        <div class="carrossel-item">
+                            <video src="saas moodflix.mp4" muted loop playsinline autoplay></video>
+                            <p>Plataforma de streaming com recomendações personalizadas por IA.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="leilão de saas .mp4" muted loop playsinline autoplay></video>
+                            <p>Sistema de leilões online em tempo real com gestão automatizada.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="gestão de influencer.mp4" muted loop playsinline autoplay></video>
+                            <p>Painel completo para gestão de campanhas e influenciadores.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="CRM de saas.mp4" muted loop playsinline autoplay></video>
+                            <p>CRM inteligente para gerenciar clientes e funil de vendas.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="calendário automatico de postagens.mp4" muted loop playsinline autoplay></video>
+                            <p>Agendamento automático de posts para múltiplas redes sociais.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="construtor de quizz.mp4" muted loop playsinline autoplay></video>
+                            <p>Construtor de quizzes interativos para engajamento e geração de leads.</p>
+                        </div>
+                        <!-- duplicatas para loop contínuo -->
+                        <div class="carrossel-item">
+                            <video src="saas moodflix.mp4" muted loop playsinline autoplay></video>
+                            <p>Plataforma de streaming com recomendações personalizadas por IA.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="leilão de saas .mp4" muted loop playsinline autoplay></video>
+                            <p>Sistema de leilões online em tempo real com gestão automatizada.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="gestão de influencer.mp4" muted loop playsinline autoplay></video>
+                            <p>Painel completo para gestão de campanhas e influenciadores.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="CRM de saas.mp4" muted loop playsinline autoplay></video>
+                            <p>CRM inteligente para gerenciar clientes e funil de vendas.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="calendário automatico de postagens.mp4" muted loop playsinline autoplay></video>
+                            <p>Agendamento automático de posts para múltiplas redes sociais.</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <video src="construtor de quizz.mp4" muted loop playsinline autoplay></video>
+                            <p>Construtor de quizzes interativos para engajamento e geração de leads.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -270,6 +342,7 @@
 
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-bar-fill, .circle-fill, .servico-card')
             .forEach(el => observer.observe(el));
+
     </script>
 </body>
 

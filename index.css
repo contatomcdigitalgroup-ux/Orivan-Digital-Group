@@ -647,9 +647,9 @@ section {
 }
 
 .projetos > div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .projetos-card {
@@ -689,6 +689,94 @@ section {
     line-height: 1.7;
     color: var(--cor-texto);
     padding: 0 1.5rem 1.5rem;
+}
+
+/* ── CARROSSEL INFINITO DE VÍDEOS (card Sites) ── */
+.carrossel-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    /* estoura o padding da seção para ir de borda a borda */
+    margin-left: calc(-10% - 0px);
+    margin-right: calc(-10% - 0px);
+    background: #000;
+}
+
+.carrossel-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 340px;
+    animation: carrossel-scroll 28s linear infinite;
+}
+
+.carrossel-track:hover {
+    animation-play-state: paused;
+}
+
+.projetos-card-sites,
+.projetos-card-saas {
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.projetos-card-sites:hover,
+.projetos-card-saas:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.projetos-card-sites .titulo,
+.projetos-card-sites [class^="parágrafo"],
+.projetos-card-saas .titulo,
+.projetos-card-saas [class^="parágrafo"] {
+    padding-left: 0;
+}
+
+.carrossel-track-saas {
+    animation-name: carrossel-scroll-saas;
+}
+
+.carrossel-item {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    border-right: 6px solid var(--base-1);
+}
+
+.carrossel-item video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.carrossel-item p {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--cor-texto);
+    line-height: 1.5;
+    background: var(--base-2);
+}
+
+@keyframes carrossel-scroll-saas {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.carrossel-slide {
+    width: 340px;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    border-right: 6px solid var(--base-1);
+}
+
+@keyframes carrossel-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* ── CONTATO ── */
