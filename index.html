@@ -345,6 +345,16 @@
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-bar-fill, .circle-fill, .servico-card')
             .forEach(el => observer.observe(el));
 
+        // Pausa carrossel no toque (mobile)
+        document.querySelectorAll('.carrossel-track').forEach(track => {
+            track.addEventListener('touchstart', () => {
+                track.classList.add('paused');
+            }, { passive: true });
+            track.addEventListener('touchend', () => {
+                setTimeout(() => track.classList.remove('paused'), 3000);
+            }, { passive: true });
+        });
+
     </script>
 </body>
 

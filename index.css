@@ -706,10 +706,11 @@ section {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 340px;
-    animation: carrossel-scroll 28s linear infinite;
+    animation: carrossel-scroll 18s linear infinite;
 }
 
-.carrossel-track:hover {
+.carrossel-track:hover,
+.carrossel-track.paused {
     animation-play-state: paused;
 }
 
