@@ -405,18 +405,23 @@
         initCarrossel(document.querySelector('.carrossel-track'), 346, 0.8);
         initCarrossel(document.querySelector('.carrossel-track-saas'), 346, 0.8);
 
-        // Carrega iframe só ao clicar/tocar no placeholder
-        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
-            placeholder.addEventListener('click', function () {
-                if (this.querySelector('iframe')) return;
+        // Carrega todos os iframes quando a seção de projetos entrar na tela
+        const projetosSection = document.querySelector('#projetos');
+        const projetosObserver = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+                if (placeholder.querySelector('iframe')) return;
                 const iframe = document.createElement('iframe');
-                iframe.src = this.dataset.src;
+                iframe.src = placeholder.dataset.src;
                 iframe.allowFullscreen = true;
                 iframe.allow = 'autoplay';
-                this.appendChild(iframe);
-                this.querySelector('.play-btn').style.display = 'none';
+                placeholder.appendChild(iframe);
+                const btn = placeholder.querySelector('.play-btn');
+                if (btn) btn.style.display = 'none';
             });
-        });
+            projetosObserver.disconnect();
+        }, { threshold: 0.1 });
+        projetosObserver.observe(projetosSection);
 
     </script>
 </body>
