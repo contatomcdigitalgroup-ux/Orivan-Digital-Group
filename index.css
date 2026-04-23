@@ -706,12 +706,12 @@ section {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 340px;
-    animation: carrossel-scroll 18s linear infinite;
+    will-change: transform;
+    cursor: grab;
 }
 
-.carrossel-track:hover,
-.carrossel-track.paused {
-    animation-play-state: paused;
+.carrossel-track:active {
+    cursor: grabbing;
 }
 
 .projetos-card-sites,
@@ -734,10 +734,6 @@ section {
 .projetos-card-saas .titulo,
 .projetos-card-saas [class^="parágrafo"] {
     padding-left: 0;
-}
-
-.carrossel-track-saas {
-    animation-name: carrossel-scroll-saas;
 }
 
 .carrossel-item {
@@ -763,10 +759,6 @@ section {
     background: var(--base-2);
 }
 
-@keyframes carrossel-scroll-saas {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
 
 .carrossel-slide {
     width: 340px;
@@ -777,10 +769,6 @@ section {
     border-right: 6px solid var(--base-1);
 }
 
-@keyframes carrossel-scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
 
 /* ── CONTATO ── */
 .contato {

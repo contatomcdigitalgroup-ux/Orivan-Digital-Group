@@ -345,15 +345,65 @@
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-bar-fill, .circle-fill, .servico-card')
             .forEach(el => observer.observe(el));
 
-        // Pausa carrossel no toque (mobile)
-        document.querySelectorAll('.carrossel-track').forEach(track => {
-            track.addEventListener('touchstart', () => {
-                track.classList.add('paused');
-            }, { passive: true });
-            track.addEventListener('touchend', () => {
-                setTimeout(() => track.classList.remove('paused'), 3000);
-            }, { passive: true });
-        });
+        // Carrossel JS com swipe livre e auto-scroll
+        function initCarrossel(track, itemWidth, speed) {
+            if (!track) return;
+            const total = track.children.length;
+            const halfWidth = (total / 2) * itemWidth;
+            let pos = 0;
+            let dragging = false;
+            let startX = 0;
+            let startPos = 0;
+            let raf;
+            let paused = false;
+
+            function setPos(x) {
+                // reset silencioso quando chega na metade
+                if (x <= -halfWidth) x += halfWidth;
+                if (x > 0) x -= halfWidth;
+                pos = x;
+                track.style.transform = `translateX(${pos}px)`;
+            }
+
+            function loop() {
+                if (!dragging && !paused) setPos(pos - speed);
+                raf = requestAnimationFrame(loop);
+            }
+
+            // Pausa no hover (desktop)
+            track.parentElement.addEventListener('mouseenter', () => paused = true);
+            track.parentElement.addEventListener('mouseleave', () => paused = false);
+
+            // Swipe (mobile e desktop)
+            function onStart(x) {
+                dragging = true;
+                startX = x;
+                startPos = pos;
+                track.style.transition = 'none';
+            }
+
+            function onMove(x) {
+                if (!dragging) return;
+                setPos(startPos + (x - startX));
+            }
+
+            function onEnd() {
+                dragging = false;
+            }
+
+            track.addEventListener('touchstart', e => onStart(e.touches[0].clientX), { passive: true });
+            track.addEventListener('touchmove',  e => onMove(e.touches[0].clientX),  { passive: true });
+            track.addEventListener('touchend',   onEnd);
+
+            track.addEventListener('mousedown', e => { onStart(e.clientX); e.preventDefault(); });
+            window.addEventListener('mousemove', e => onMove(e.clientX));
+            window.addEventListener('mouseup',   onEnd);
+
+            raf = requestAnimationFrame(loop);
+        }
+
+        initCarrossel(document.querySelector('.carrossel-track'), 346, 0.8);
+        initCarrossel(document.querySelector('.carrossel-track-saas'), 346, 0.8);
 
     </script>
 </body>
