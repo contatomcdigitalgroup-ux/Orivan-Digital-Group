@@ -345,20 +345,21 @@
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-bar-fill, .circle-fill, .servico-card')
             .forEach(el => observer.observe(el));
 
-        // Carrossel JS com swipe livre e auto-scroll
+        // Carrossel JS com swipe livre, overlay anti-iframe e auto-scroll
         function initCarrossel(track, itemWidth, speed) {
             if (!track) return;
+            const wrapper = track.parentElement;
             const total = track.children.length;
             const halfWidth = (total / 2) * itemWidth;
             let pos = 0;
             let dragging = false;
             let startX = 0;
+            let startY = 0;
             let startPos = 0;
-            let raf;
+            let moved = false;
             let paused = false;
 
             function setPos(x) {
-                // reset silencioso quando chega na metade
                 if (x <= -halfWidth) x += halfWidth;
                 if (x > 0) x -= halfWidth;
                 pos = x;
@@ -367,39 +368,60 @@
 
             function loop() {
                 if (!dragging && !paused) setPos(pos - speed);
-                raf = requestAnimationFrame(loop);
+                requestAnimationFrame(loop);
             }
+
+            // Overlay transparente sobre cada item para capturar toque mesmo com iframe
+            function addOverlays() {
+                Array.from(track.children).forEach(child => {
+                    if (child.querySelector('.carrossel-overlay')) return;
+                    const overlay = document.createElement('div');
+                    overlay.className = 'carrossel-overlay';
+                    child.style.position = 'relative';
+                    child.appendChild(overlay);
+                });
+            }
+            addOverlays();
+            // Reaplica overlays quando iframes forem injetados
+            new MutationObserver(addOverlays).observe(track, { childList: true, subtree: true });
 
             // Pausa no hover (desktop)
-            track.parentElement.addEventListener('mouseenter', () => paused = true);
-            track.parentElement.addEventListener('mouseleave', () => paused = false);
+            wrapper.addEventListener('mouseenter', () => paused = true);
+            wrapper.addEventListener('mouseleave', () => { paused = false; });
 
-            // Swipe (mobile e desktop)
-            function onStart(x) {
-                dragging = true;
-                startX = x;
-                startPos = pos;
-                track.style.transition = 'none';
-            }
+            // Touch — captura no wrapper inteiro (overlays garantem que iframes não bloqueiam)
+            wrapper.addEventListener('touchstart', e => {
+                startX    = e.touches[0].clientX;
+                startY    = e.touches[0].clientY;
+                startPos  = pos;
+                dragging  = true;
+                moved     = false;
+            }, { passive: true });
 
-            function onMove(x) {
+            wrapper.addEventListener('touchmove', e => {
                 if (!dragging) return;
-                setPos(startPos + (x - startX));
-            }
+                const dx = e.touches[0].clientX - startX;
+                const dy = e.touches[0].clientY - startY;
+                if (!moved && Math.abs(dy) > Math.abs(dx)) { dragging = false; return; }
+                moved = true;
+                setPos(startPos + dx);
+            }, { passive: true });
 
-            function onEnd() {
-                dragging = false;
-            }
+            wrapper.addEventListener('touchend', () => { dragging = false; });
 
-            track.addEventListener('touchstart', e => onStart(e.touches[0].clientX), { passive: true });
-            track.addEventListener('touchmove',  e => onMove(e.touches[0].clientX),  { passive: true });
-            track.addEventListener('touchend',   onEnd);
+            // Mouse drag (desktop)
+            wrapper.addEventListener('mousedown', e => {
+                startX = e.clientX; startPos = pos; dragging = true; moved = false;
+                e.preventDefault();
+            });
+            window.addEventListener('mousemove', e => {
+                if (!dragging) return;
+                moved = true;
+                setPos(startPos + (e.clientX - startX));
+            });
+            window.addEventListener('mouseup', () => { dragging = false; });
 
-            track.addEventListener('mousedown', e => { onStart(e.clientX); e.preventDefault(); });
-            window.addEventListener('mousemove', e => onMove(e.clientX));
-            window.addEventListener('mouseup',   onEnd);
-
-            raf = requestAnimationFrame(loop);
+            requestAnimationFrame(loop);
         }
 
         initCarrossel(document.querySelector('.carrossel-track'), 346, 0.8);

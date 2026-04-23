@@ -800,6 +800,22 @@ section {
     border: none;
 }
 
+/* Overlay transparente que fica sobre o iframe e captura eventos de swipe */
+.carrossel-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: transparent;
+    touch-action: pan-x;
+    pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+    .carrossel-overlay {
+        pointer-events: auto;
+    }
+}
+
 .carrossel-item p {
     padding: 0.6rem 0.75rem;
     font-size: 0.82rem;
