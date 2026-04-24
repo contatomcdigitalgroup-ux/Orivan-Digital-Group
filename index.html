@@ -407,16 +407,23 @@
                 setPos(startPos + dx);
             }, { passive: true });
 
-            wrapper.addEventListener('touchend', () => { dragging = false; });
+            wrapper.addEventListener('touchend', () => {
+                dragging = false;
+                if (!moved) {
+                    const overlays = track.querySelectorAll('.carrossel-overlay');
+                    overlays.forEach(o => o.style.pointerEvents = 'none');
+                    setTimeout(() => overlays.forEach(o => o.style.pointerEvents = ''), 300);
+                }
+            });
 
             // Mouse drag (desktop)
             wrapper.addEventListener('mousedown', e => {
                 startX = e.clientX; startPos = pos; dragging = true; moved = false;
-                e.preventDefault();
             });
             window.addEventListener('mousemove', e => {
                 if (!dragging) return;
                 moved = true;
+                e.preventDefault();
                 setPos(startPos + (e.clientX - startX));
             });
             window.addEventListener('mouseup', () => { dragging = false; });
