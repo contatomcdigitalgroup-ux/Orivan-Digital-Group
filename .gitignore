@@ -9,3 +9,10 @@ foto .png
 hero, modelar .png
 skills.png
 "From KlickPin CF Pin by Thiago Oteiro on GIFs & Videos _ Motion graphics trends Social media design graphics Live screen wallpaper.mp4"
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
