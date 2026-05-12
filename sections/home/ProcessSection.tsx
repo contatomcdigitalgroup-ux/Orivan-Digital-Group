@@ -12,15 +12,15 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-20 lg:py-24 bg-[#10141B]">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <SectionTitle
             tag="Como trabalhamos"
             title="Processo Transparente do Início ao Fim"
             description="Seguimos um processo estruturado para garantir que cada projeto seja entregue no prazo, dentro do orçamento e com qualidade excepcional."
           />
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
             {steps.map((step, i) => (
               <ProcessStep key={step.title} number={i + 1} title={step.title} description={step.description} />
             ))}

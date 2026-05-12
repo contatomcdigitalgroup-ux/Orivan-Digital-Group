@@ -3,18 +3,21 @@ import { founder } from "@/data/company";
 
 export default function FounderSection() {
   return (
-    <section className="py-16 lg:py-20 bg-gray-900 text-white">
+    <section className="py-20 lg:py-24 bg-[#161B22] border-y border-white/[0.06]">
       <Container>
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 rounded-full bg-gray-700 mx-auto mb-6 flex items-center justify-center text-2xl">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="w-16 h-16 rounded-full bg-[#10141B] border border-white/[0.08] mx-auto mb-8 flex items-center justify-center text-xl">
             👤
           </div>
-          <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed text-gray-100">
+          <blockquote
+            className="text-xl sm:text-2xl font-medium leading-relaxed text-white"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
             &ldquo;Acreditamos que toda empresa, independente do tamanho, merece ter presença digital de qualidade. Essa é a missão da Orivan.&rdquo;
           </blockquote>
-          <div className="mt-6">
+          <div className="mt-8">
             <p className="font-semibold text-white">{founder.name}</p>
-            <p className="text-sm text-gray-400">{founder.role}</p>
+            <p className="text-sm text-[#9CA3AF] mt-1">{founder.role}</p>
           </div>
         </div>
       </Container>

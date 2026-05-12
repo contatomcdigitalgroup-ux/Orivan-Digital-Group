@@ -11,15 +11,18 @@ export default function SectionTitle({ tag, title, description, centered = false
   return (
     <div className={`flex flex-col gap-3 ${align}`}>
       {tag && (
-        <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#4ADE80]">
           {tag}
         </span>
       )}
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+      <h2
+        className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight"
+        style={{ fontFamily: "var(--font-outfit)" }}
+      >
         {title}
       </h2>
       {description && (
-        <p className="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
+        <p className="text-base sm:text-lg text-[#9CA3AF] max-w-2xl leading-relaxed">
           {description}
         </p>
       )}

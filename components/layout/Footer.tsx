@@ -16,24 +16,28 @@ const company = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-[#10141B] border-t border-white/[0.06]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <Link href="/" className="font-bold text-xl text-white tracking-tight">
-              Orivan<span className="text-blue-500">.</span>
+            <Link
+              href="/"
+              className="font-bold text-xl text-white tracking-tight"
+              style={{ fontFamily: "var(--font-outfit)" }}
+            >
+              Orivan<span className="text-[#4ADE80]">.</span>
             </Link>
-            <p className="mt-3 text-sm leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm text-[#9CA3AF] leading-relaxed max-w-xs">
               Agência digital focada em resultados. Transformamos ideias em soluções digitais que geram valor real.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Serviços</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-semibold text-white mb-5">Serviços</h3>
+            <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-sm hover:text-white transition-colors">
+                  <Link href={s.href} className="text-sm text-[#9CA3AF] hover:text-white transition-colors">
                     {s.label}
                   </Link>
                 </li>
@@ -42,11 +46,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Empresa</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-semibold text-white mb-5">Empresa</h3>
+            <ul className="space-y-3">
               {company.map((c) => (
                 <li key={c.href}>
-                  <Link href={c.href} className="text-sm hover:text-white transition-colors">
+                  <Link href={c.href} className="text-sm text-[#9CA3AF] hover:text-white transition-colors">
                     {c.label}
                   </Link>
                 </li>
@@ -55,7 +59,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9CA3AF]">
           <p>© {new Date().getFullYear()} Orivan Digital Group. Todos os direitos reservados.</p>
           <p>Desenvolvido com dedicação para entregar o melhor.</p>
         </div>

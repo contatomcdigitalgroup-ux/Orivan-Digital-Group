@@ -11,9 +11,9 @@ const highlights = [
 
 export default function PortfolioHighlightSection() {
   return (
-    <section className="py-16 lg:py-20 bg-gray-50">
+    <section className="py-20 lg:py-24 bg-[#0B0F14]">
       <Container>
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <SectionTitle
             tag="Portfólio"
             title="Projetos em Destaque"
@@ -22,7 +22,7 @@ export default function PortfolioHighlightSection() {
             Ver todos
           </CTAButton>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {highlights.map((project) => (
             <PortfolioCard key={project.title} {...project} />
           ))}

@@ -10,9 +10,9 @@ interface CTAButtonProps {
 
 export default function CTAButton({ href, children, variant = "primary", className = "" }: CTAButtonProps) {
   const variants = {
-    primary: "bg-gray-900 text-white hover:bg-gray-700",
-    secondary: "bg-blue-600 text-white hover:bg-blue-700",
-    outline: "border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white",
+    primary: "bg-[#4ADE80] text-[#0B0F14] hover:bg-[#66FF99]",
+    secondary: "bg-[#4ADE80] text-[#0B0F14] hover:bg-[#66FF99]",
+    outline: "border border-white/20 text-[#D1D5DB] hover:border-white/40 hover:text-white",
   };
 
   return (

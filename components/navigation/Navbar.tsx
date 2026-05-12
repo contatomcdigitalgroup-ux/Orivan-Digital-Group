@@ -26,29 +26,33 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-[#0B0F14]/90 backdrop-blur-md border-b border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-bold text-xl text-gray-900 tracking-tight">
-            Orivan<span className="text-blue-600">.</span>
+          <Link
+            href="/"
+            className="font-bold text-xl text-white tracking-tight"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            Orivan<span className="text-[#4ADE80]">.</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-7">
             {links.map((link) =>
               link.children ? (
                 <div key={link.href} className="relative group">
-                  <button className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1">
+                  <button className="text-sm text-[#9CA3AF] hover:text-white transition-colors flex items-center gap-1">
                     {link.label}
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-[#10141B] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1">
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                        className="block px-4 py-2.5 text-sm text-[#9CA3AF] hover:text-white hover:bg-white/[0.04] transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -59,7 +63,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-gray-600 hover:text-gray-900"
+                  className="text-sm text-[#9CA3AF] hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -67,14 +71,14 @@ export default function Navbar() {
             )}
             <Link
               href="/contato"
-              className="ml-2 px-4 py-2 text-sm font-medium bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              className="ml-1 px-4 py-2 text-sm font-medium bg-[#4ADE80] text-[#0B0F14] rounded-lg hover:bg-[#66FF99] transition-colors"
             >
               Fale Conosco
             </Link>
           </nav>
 
           <button
-            className="md:hidden p-2 text-gray-600"
+            className="md:hidden p-2 text-[#9CA3AF] hover:text-white transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
@@ -90,13 +94,13 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div className="md:hidden border-t border-white/[0.06] bg-[#10141B]">
           <nav className="px-4 py-3 flex flex-col gap-1">
             {links.map((link) =>
               link.children ? (
                 <div key={link.href}>
                   <button
-                    className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:text-gray-900 flex items-center justify-between"
+                    className="w-full text-left px-3 py-2.5 text-sm text-[#9CA3AF] hover:text-white flex items-center justify-between transition-colors"
                     onClick={() => setServicesOpen(!servicesOpen)}
                   >
                     {link.label}
@@ -105,12 +109,12 @@ export default function Navbar() {
                     </svg>
                   </button>
                   {servicesOpen && (
-                    <div className="pl-4 flex flex-col gap-1">
+                    <div className="pl-4 flex flex-col gap-1 mt-1">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="px-3 py-2 text-sm text-gray-500 hover:text-gray-900"
+                          className="px-3 py-2 text-sm text-[#9CA3AF] hover:text-white transition-colors"
                           onClick={() => setMobileOpen(false)}
                         >
                           {child.label}
@@ -123,7 +127,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm text-gray-600 hover:text-gray-900"
+                  className="px-3 py-2.5 text-sm text-[#9CA3AF] hover:text-white transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -132,7 +136,7 @@ export default function Navbar() {
             )}
             <Link
               href="/contato"
-              className="mt-2 px-4 py-2.5 text-sm font-medium bg-gray-900 text-white rounded-lg text-center"
+              className="mt-3 px-4 py-2.5 text-sm font-medium bg-[#4ADE80] text-[#0B0F14] rounded-lg text-center"
               onClick={() => setMobileOpen(false)}
             >
               Fale Conosco
